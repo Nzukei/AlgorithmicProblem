@@ -46,6 +46,7 @@ bool set(vector<vector<int>>& board, int y, int x, int type, int delta) {
 int cover(vector<vector<int>>& board) {
     // 아직 채우지 못한 칸 중 가장 윗줄 왼쪽에 있는 칸을 찾는다.
     int y = -1, x = -1 ;
+    int ret = 0;
     
     for (int i = 0; i < board.size(); i++) {
         for (int j = 0; j < board[i].size(); j++)
@@ -59,7 +60,6 @@ int cover(vector<vector<int>>& board) {
     
     // 기저 사례: 모든 칸을 채웠으면 1을 반환한다.
     if (y == -1) return 1;
-    int ret = 0;
     
     for (int type = 0; type < 4; type++) {
         // 만약 board[y][x]를 type 형태로 덮을 수 있으면 재귀 호출한다.
@@ -68,6 +68,7 @@ int cover(vector<vector<int>>& board) {
         // 덮었던 블록을 치운다.
         set(board, y, x, type, -1);
     }
+ 
     return ret;
 }
 
@@ -82,7 +83,6 @@ int main() {
         cin >> y >> x;
         vector<vector<int>> board(y, vector<int>(x, 0));
         string tmp;
-        
         for (int i = 0; i < y; i++) {
             cin >> tmp;
             for (int j = 0; j < tmp.size(); j++) {
