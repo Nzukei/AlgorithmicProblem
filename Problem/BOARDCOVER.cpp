@@ -8,7 +8,6 @@ using namespace std;
 
 /*
  주어진 칸을 덮을 수 있는 네 가지 방법
- 블록을 구성하는 세 칸의 상대적 위치 (dy, dx)의 목록
 */
 const int coverType[4][3][2] = {
     { { 0, 0 }, { 1, 0 }, { 0, 1 } }, // (b)
@@ -21,7 +20,7 @@ const int coverType[4][3][2] = {
 /*
  board의 (y, x)를 type번 방법으로 덮거나, 덮었던 블록을 없앤다.
  delta = 1이면 덮고, -1이면 덮었던 블록을 없앤다.
- 민약 블록이 제대로 덮이지 않은 경우 -> 게임판 밖으로 나가거나, 겹치거나, 검은 칸을 덮을 때 -> false를 반환한다.
+ 만약 블록이 제대로 덮이지 않은 경우 -> 게임판 밖으로 나가거나, 겹치거나, 검은 칸을 덮을 때 -> false를 반환한다.
 */
 bool set(vector<vector<int>>& board, int y, int x, int type, int delta) {
     bool ok = true;
