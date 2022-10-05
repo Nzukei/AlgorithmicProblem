@@ -38,6 +38,7 @@ int main() {
     bool taken[10];
     
     cin >> test;
+    
     if (test < 0 || test > 50)
         exit(-1);
     for (int i = 0; i < test; i++) {
